@@ -1,13 +1,14 @@
-package desafio.healthtech.care.dto.paciente;
+package desafio.healthtech.care.dto.medico;
+
+import desafio.healthtech.care.enums.EspecialidadeEnum;
 
 import java.time.LocalDate;
 
-public record PacienteDTOResponse(
+public record MedicoDTOResponse(
         Long id,
         String nome,
-        String cpf,
+        String crm,
         String email,
-        String telefone,
-        LocalDate dataNascimento,
+        EspecialidadeEnum especialidade,
         boolean ativo
 ) {}

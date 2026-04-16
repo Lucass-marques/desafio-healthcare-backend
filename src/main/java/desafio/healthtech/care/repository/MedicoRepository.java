@@ -1,4 +1,6 @@
 package desafio.healthtech.care.repository;
 
-public interface MedicoRepository {
-}
+import desafio.healthtech.care.model.Medico;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MedicoRepository extends JpaRepository<Medico, Long> {}
