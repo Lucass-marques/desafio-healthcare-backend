@@ -43,7 +43,7 @@ public class ConsultaService {
                 .orElseThrow(() -> new NotFoundException("Paciente não encontrado"));
 
         Medico medico = medicoRepository.findById(request.medicoId())
-                .orElseThrow(() -> new NotFoundException("Paciente não encontrado"));
+                .orElseThrow(() -> new NotFoundException("Médico não encontrado"));
 
         LocalDateTime dataHora = request.dataHora();
 
@@ -85,11 +85,6 @@ public class ConsultaService {
                 .orElseThrow(() -> new NotFoundException("Consulta não encontrada"));
 
         consulta.setStatus(ConsultaStatus.CANCELADA);
+        consultaRepository.save(consulta);
     }
-
-
-
-
-
-
 }

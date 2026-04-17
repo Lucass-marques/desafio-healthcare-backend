@@ -16,7 +16,7 @@ public record MedicoDTORequest(
         String nome,
 
         @Schema(example = "12345")
-        @NotBlank(message = "O CPF é obrigatório")
+        @NotBlank(message = "O CRM é obrigatório")
         @Pattern(regexp = "^\\d{4,6}$", message = "O CRM deve conter apenas números, entre 4 e 6 dígitos")
         String crm,
 

@@ -33,6 +33,7 @@ public class GlobalExceptionHandler {
                 .body(new ErrorResponse(422, e.getMessage()));
     }
 
+    @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorResponse> handleValidator(MethodArgumentNotValidException e) {
         String message = e.getBindingResult()
                 .getFieldErrors()

@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
 import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
@@ -28,5 +29,6 @@ public record PacienteDTORequest(
 
         @Schema(example = "1969-01-01")
         @NotNull(message = "A data de nascimento é obrigatória")
+        @PastOrPresent(message = "A data de nascimento não pode ser futura")
         LocalDate dataNascimento
 ) {}

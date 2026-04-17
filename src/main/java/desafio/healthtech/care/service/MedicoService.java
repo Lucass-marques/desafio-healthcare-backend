@@ -18,7 +18,7 @@ public class MedicoService {
     private final ToResponseMapper toResponseMapper;
 
     public List<MedicoDTOResponse> findAll() {
-        return medicoRepository.findAll()
+        return medicoRepository.findByAtivoTrue()
                 .stream()
                 .map(toResponseMapper::medicoToDTOResponse)
                 .toList();

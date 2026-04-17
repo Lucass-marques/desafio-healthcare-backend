@@ -18,7 +18,7 @@ public class PacienteService {
     private final ToResponseMapper toResponseMapper;
 
     public List<PacienteDTOResponse> findAll() {
-        return pacienteRepository.findAll()
+        return pacienteRepository.findByAtivoTrue()
                 .stream()
                 .map(toResponseMapper::pacienteToDTOResponse)
                 .toList();
