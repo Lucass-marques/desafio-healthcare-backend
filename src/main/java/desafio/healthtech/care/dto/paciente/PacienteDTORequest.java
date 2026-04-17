@@ -2,6 +2,7 @@ package desafio.healthtech.care.dto.paciente;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
@@ -21,6 +22,6 @@ public record PacienteDTORequest(
 
         String telefone,
 
-        @NotBlank(message = "A data de nascimento é obrigatória")
+        @NotNull(message = "A data de nascimento é obrigatória")
         LocalDate dataNascimento
 ) {}

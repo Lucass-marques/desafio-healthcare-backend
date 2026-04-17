@@ -32,5 +32,6 @@ public class Paciente {
     @Column(nullable = false)
     private LocalDate dataNascimento;
 
+    @Builder.Default
     boolean ativo = true;
 }

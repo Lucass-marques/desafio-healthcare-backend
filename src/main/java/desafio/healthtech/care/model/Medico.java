@@ -29,5 +29,6 @@ public class Medico {
     @Column(nullable = false)
     private EspecialidadeEnum especialidade;
 
+    @Builder.Default
     boolean ativo = true;
 }

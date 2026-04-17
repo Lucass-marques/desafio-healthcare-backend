@@ -59,14 +59,14 @@ public class ConsultaService {
             throw new UnprocessableEntityException("Não é possível agendar uma consulta no passado");
         }
 
-        if (consultaRepository.existsByMedicoIdAndDataAndStatus(medico.getId(), dataHora, ConsultaStatus.AGENDADA)) {
+        if (consultaRepository.existsByMedicoIdAndDataHoraAndStatus(medico.getId(), dataHora, ConsultaStatus.AGENDADA)) {
             throw new ConflictException("O médico já possui uma consulta agendada para este horário");
         }
 
         LocalDateTime inicioDia = dataHora.withHour(0).withMinute(0).withSecond(0);
         LocalDateTime fimDia = dataHora.withHour(23).withMinute(59).withSecond(59);
 
-        if (consultaRepository.existsByPacienteIdAndStatusAndDataHoraBetween(paciente.getId(), inicioDia, fimDia, ConsultaStatus.AGENDADA)) {
+        if (consultaRepository.existsByPacienteIdAndDataHoraBetweenAndStatus(paciente.getId(), inicioDia, fimDia, ConsultaStatus.AGENDADA)) {
             throw new ConflictException("O paciente já possui uma consulta agendada para este dia");
         }
 
